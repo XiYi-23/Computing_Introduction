@@ -22,7 +22,6 @@ def locate(pos):#从随意位置的点击坐标转化到最近线交点坐标
 def check(board,inds):#检查胜利条件
   ori=board[inds[0]][inds[1]]
   x_pos,y_pos=inds[0],inds[1]
-  board=board
   x,y,xy,yx,i=1,1,1,1,1
   finish=[False,False]
   i=1
@@ -55,11 +54,11 @@ def check(board,inds):#检查胜利条件
   finish=[False,False]
   i=1
   while(True):
-    if((not finish[0]) and x_pos+i<15 and y_pos-i>0 and board[x_pos+i][y_pos-i]==ori):
+    if((not finish[0]) and x_pos+i<15 and y_pos-i>=0 and board[x_pos+i][y_pos-i]==ori):
       yx+=1
     else:
       finish[0]=True
-    if((not finish[1]) and x_pos-i>0 and y_pos+i<15 and board[x_pos-i][y_pos+i]==ori):
+    if((not finish[1]) and x_pos-i>=0 and y_pos+i<15 and board[x_pos-i][y_pos+i]==ori):
       yx+=1
     else:
       finish[1]=True
@@ -73,7 +72,7 @@ def check(board,inds):#检查胜利条件
       xy+=1
     else:
       finish[0]=True
-    if((not finish[1]) and x_pos-i>0 and y_pos-i>0 and board[x_pos-i][y_pos-i]==ori):
+    if((not finish[1]) and x_pos-i>=0 and y_pos-i>=0 and board[x_pos-i][y_pos-i]==ori):
       xy+=1
     else:
       finish[1]=True
