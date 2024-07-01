@@ -45,6 +45,9 @@ class Ui_mainWindow(object):
         self.stbutton.setAccessibleDescription("")
         self.stbutton.setObjectName("stbutton")
         self.verticalLayout.addWidget(self.stbutton)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout.addWidget(self.pushButton)
         self.log = QtWidgets.QTextBrowser(self.centralwidget)
         self.log.setAccessibleDescription("")
         self.log.setObjectName("log")
@@ -57,13 +60,15 @@ class Ui_mainWindow(object):
         mainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(mainWindow)
-        self.stbutton.clicked.connect(mainWindow.start) # type: ignore
+        self.pushButton.clicked.connect(mainWindow.ai_start) # type: ignore
+        self.stbutton.clicked.connect(mainWindow.pvp_start) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(mainWindow)
 
     def retranslateUi(self, mainWindow):
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "五子棋-李佳霖2231313815"))
-        self.stbutton.setText(_translate("mainWindow", "开始游戏"))
+        self.stbutton.setText(_translate("mainWindow", "双人对战"))
+        self.pushButton.setText(_translate("mainWindow", "人机对战"))
         self.log.setHtml(_translate("mainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
